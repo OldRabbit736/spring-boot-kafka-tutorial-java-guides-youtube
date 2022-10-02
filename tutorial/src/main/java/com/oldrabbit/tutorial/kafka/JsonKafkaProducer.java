@@ -1,5 +1,7 @@
 package com.oldrabbit.tutorial.kafka;
 
+import com.oldrabbit.tutorial.config.KafkaTopicConfig;
+import com.oldrabbit.tutorial.config.Topics;
 import com.oldrabbit.tutorial.payload.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +28,7 @@ public class JsonKafkaProducer {
 
         Message<User> message = MessageBuilder
                 .withPayload(data)
-                .setHeader(KafkaHeaders.TOPIC, "myTopic")
+                .setHeader(KafkaHeaders.TOPIC, Topics.my_topic_json)
                 .build();
 
         kafkaTemplate.send(message);

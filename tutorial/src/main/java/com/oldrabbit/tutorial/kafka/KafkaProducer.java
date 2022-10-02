@@ -1,5 +1,6 @@
 package com.oldrabbit.tutorial.kafka;
 
+import com.oldrabbit.tutorial.config.Topics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -19,6 +20,6 @@ public class KafkaProducer {
 
     public void sendMessage(String message) {
         LOGGER.info(String.format("Message sent %s", message));
-        kafkaTemplate.send("myTopic", message);
+        kafkaTemplate.send(Topics.my_topic, message);
     }
 }

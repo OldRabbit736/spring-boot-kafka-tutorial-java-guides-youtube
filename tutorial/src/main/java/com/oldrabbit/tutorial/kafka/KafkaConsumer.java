@@ -1,5 +1,6 @@
 package com.oldrabbit.tutorial.kafka;
 
+import com.oldrabbit.tutorial.config.Topics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -10,7 +11,7 @@ public class KafkaConsumer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
-    @KafkaListener(topics = "myTopic", groupId = "myGroup")
+    @KafkaListener(topics = Topics.my_topic, groupId = "myGroup")
     public void consume(String message) {
         LOGGER.info(String.format("Message received -> %s", message));
     }
